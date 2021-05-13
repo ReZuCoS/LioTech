@@ -1,0 +1,252 @@
+﻿<Window x:Class="LioTech.Windows.WindowLogist"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LioTech.Windows"
+        mc:Ignorable="d" Background="#FFF1F2F3" WindowStyle="None"
+        Title="WindowLogist" Height="430" Width="580"
+        MinHeight="430" MinWidth="580" MaxHeight="450" MaxWidth="650"
+        AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen">
+    <Grid d:IsLocked="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Close and minimise buttons -->
+        <Grid Grid.Row="0" Background="Transparent" MouseDown="DragMovement">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Image Name="MinBtn" Height="13" Width="13" Margin="5 5 5 5"
+                       MouseLeftButtonDown="MinBtn_MouseDown"
+                       Style="{StaticResource MinBtn_default}">
+                    <Image.Effect>
+                        <BlurEffect Radius="1"/>
+                    </Image.Effect>
+                </Image>
+
+                <Image Name="СloseBtn" Height="13" Width="13" Margin="5 5 10 5"
+                       MouseLeftButtonDown="СloseBtn_MouseDown"
+                       Style="{StaticResource СloseBtn_default}">
+                    <Image.Effect>
+                        <BlurEffect Radius="1"/>
+                    </Image.Effect>
+                </Image>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="Transparent">
+
+            <!-- Top border -->
+            <Border BorderBrush="#8cb349" BorderThickness="0 1 0 0"/>
+
+            <!-- Logo container -->
+            <Grid Grid.Row="0" MouseDown="DragMovement" VerticalAlignment="Top"
+                      Background="#8cb349" Height="75" Width="175">
+                <TextBlock Text="Лиотех" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" Margin="0 10 10 0"
+                       FontFamily="Montserrat" FontSize="35"
+                       FontWeight="Normal" Foreground="#FFFFFF"/>
+                <Ellipse Width="25" Height="25" StrokeThickness="1"
+                     Stroke="#FFFFFF" Margin="125 0 0 35"/>
+                <Ellipse Width="12" Height="12" Fill="#FFFFFF"
+                     Margin="125 0 0 35"/>
+                <Ellipse Width="5" Height="5" Fill="#FFFFFF"
+                     Margin="143 0 0 51"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2" Background="Transparent">
+
+            <!-- Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Button suppliers -->
+            <Button Name="SuppliersBtn" Grid.Column="0" Grid.Row="0" Style="{StaticResource Btn_default}">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="#8cb349">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="/Libraries/Images/Поставки.png" Width="26" Height="25"
+                                   Margin="0 0 0 0" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="Поставки" TextWrapping="Wrap" FontSize="25" FontWeight="Normal"
+                                       FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+                            <Image Grid.Column="2" Source="/Libraries/Images/Стрелка.png" Width="20" Height="20"
+                                   Margin="0 0 0 0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!-- Button dealer -->
+            <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource Btn_default}">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="#8cb349">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="/Libraries/Images/Дилер.png" Width="26" Height="25"
+                                   Margin="0 0 0 0" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="Дилеры" TextWrapping="Wrap" FontSize="25" FontWeight="Normal"
+                                       FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+                            <Image Grid.Column="2" Source="/Libraries/Images/Стрелка.png" Width="20" Height="20"
+                                   Margin="0 0 0 0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!-- Button li-ion battery -->
+            <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource Btn_default}">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="#8cb349">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="/Libraries/Images/Литий-ионный аккумулятор.png" Width="26" Height="25"
+                                   Margin="0 0 0 0" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="Литий-ионные аккумуляторы" TextWrapping="Wrap" FontSize="25" FontWeight="Normal"
+                                       FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+                            <Image Grid.Column="2" Source="/Libraries/Images/Стрелка.png" Width="20" Height="20"
+                                   Margin="0 0 0 0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!-- Button batteries for electric buses -->
+            <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource Btn_default}">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="#8cb349">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="/Libraries/Images/Батареи для транспорта.png" Width="26" Height="25"
+                                   Margin="0 0 0 0" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="Тяговые батареи электробусов" TextWrapping="Wrap" FontSize="25" FontWeight="Normal"
+                                       FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+                            <Image Grid.Column="2" Source="/Libraries/Images/Стрелка.png" Width="20" Height="20"
+                                   Margin="0 0 0 0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!-- Button batteries for construction equipment -->
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource Btn_default}">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="#8cb349">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="/Libraries/Images/Батареи для спецтехники.png" Width="26" Height="25"
+                                   Margin="0 0 0 0" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="Тяговые батареи для спецтехники" TextWrapping="Wrap" FontSize="25" FontWeight="Normal"
+                                       FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+                            <Image Grid.Column="2" Source="/Libraries/Images/Стрелка.png" Width="20" Height="20"
+                                   Margin="0 0 0 0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!-- Button uninterruptible Power Supplies -->
+            <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource Btn_default}">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="#8cb349">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="/Libraries/Images/Источники бесперебойного питания.png" Width="26" Height="25"
+                                   Margin="0 0 0 0" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="ИБП" TextWrapping="Wrap" FontSize="25" FontWeight="Normal"
+                                       FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+                            <Image Grid.Column="2" Source="/Libraries/Images/Стрелка.png" Width="20" Height="20"
+                                   Margin="0 0 0 0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!-- Button networked energy storage -->
+            <Button Grid.Column="0" Grid.Row="3" Style="{StaticResource Btn_default}">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="#8cb349">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="/Libraries/Images/Источники бесперебойного питания.png" Width="26" Height="25"
+                                   Margin="0 0 0 0" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="Сетевые накопители" TextWrapping="Wrap" FontSize="25" FontWeight="Normal"
+                                       FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+                            <Image Grid.Column="2" Source="/Libraries/Images/Стрелка.png" Width="20" Height="20"
+                                   Margin="0 0 0 0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!-- Button different -->
+            <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource Btn_default}">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="#8cb349">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="/Libraries/Images/Разное.png" Width="26" Height="25"
+                                   Margin="0 0 0 0" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="Разное" TextWrapping="Wrap" FontSize="25" FontWeight="Normal"
+                                       FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+                            <Image Grid.Column="2" Source="/Libraries/Images/Стрелка.png" Width="20" Height="20"
+                                   Margin="0 0 0 0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

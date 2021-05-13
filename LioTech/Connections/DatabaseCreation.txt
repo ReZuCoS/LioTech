@@ -1,0 +1,90 @@
+﻿CREATE DATABASE LioTechDatabase
+GO
+
+USE LioTechDatabase
+GO
+
+CREATE TABLE Deliveries
+(
+	ID INT IDENTITY(1,1) NOT NULL,
+	CompanyName nvarchar(100) NOT NULL,
+	Product nvarchar(100) NOT NULL,
+	DepartureDate date NOT NULL,
+	ReceivingDate date NOT NULL,
+	Status nvarchar(25) NOT NULL
+);
+
+CREATE TABLE Users
+(
+	ID INT IDENTITY(1,1) NOT NULL,
+	Login nvarchar(50) NOT NULL,
+	Password nvarchar(50) NOT NULL,
+	FirstName nvarchar(50) NOT NULL,
+	SecondName nvarchar(50) NOT NULL,
+	MiddleName nvarchar(50),
+	Gender nvarchar(10) NOT NULL
+);
+
+CREATE TABLE LiIonBatteries
+(
+	ID INT IDENTITY(1,1) NOT NULL,
+	Name nvarchar(100) NOT NULL,
+	BodyMaterial nvarchar(50) NOT NULL,
+	Capacity nvarchar(50) NOT NULL,
+	Voltage nvarchar(50),
+	Mass decimal(15, 2),
+	Description nvarchar(250)
+);
+
+CREATE TABLE TractionBatteries_EBus
+(
+	ID INT IDENTITY(1,1) NOT NULL,
+	Name nvarchar(100) NOT NULL,
+	CoolingType nvarchar(25),
+	Capacity nvarchar(50) NOT NULL,
+	Voltage nvarchar(50),
+	Mass decimal(15, 2),
+	Description nvarchar(250)
+);
+
+CREATE TABLE TractionBatteries_SpecialEq
+(
+	ID INT IDENTITY(1,1) NOT NULL,
+	Name nvarchar(100) NOT NULL,
+	ExplosionProtectionType nvarchar(50),
+	Capacity nvarchar(50) NOT NULL,
+	Voltage nvarchar(50),
+	Mass decimal(15, 2),
+	Description nvarchar(250)
+);
+
+CREATE TABLE UninterruptiblePowerSupplies
+(
+	ID INT IDENTITY(1,1) NOT NULL,
+	Name nvarchar(100) NOT NULL,
+	ExplosionProtectionType nvarchar(50),
+	MaxPower nvarchar(100),
+	Capacity nvarchar(50) NOT NULL,
+	Voltage nvarchar(50),
+	Mass decimal(15, 2),
+	Description nvarchar(250)
+);
+
+CREATE TABLE NetworkedEnergyStorage
+(
+	ID INT IDENTITY(1,1) NOT NULL,
+	Name nvarchar(100) NOT NULL,
+	ClimaticType nvarchar(50),
+	MaxPower nvarchar(100),
+	Capacity nvarchar(50) NOT NULL,
+	Voltage nvarchar(50),
+	Mass decimal(15, 2),
+	Description nvarchar(250)
+);
+
+CREATE TABLE Different
+(
+	ID INT IDENTITY(1,1) NOT NULL,
+	Name nvarchar(100) NOT NULL,
+	Description nvarchar(250)
+);
