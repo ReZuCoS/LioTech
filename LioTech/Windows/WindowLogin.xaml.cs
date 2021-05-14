@@ -11,11 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Security.Cryptography;
+using LioTech.Connections;
 
 namespace LioTech.Windows
 {
     public partial class WindowLogin
     {
+        readonly Model_LioTech database = new Model_LioTech();
+
         public WindowLogin()
         {
             InitializeComponent();
@@ -53,14 +56,47 @@ namespace LioTech.Windows
             if (LoginTb.Text == "" || PwdBox.Password == "")
             {
                 MessageBox.Show("Пожалуйста, заполните все поля");
+                return;
             }
-            else
-            {
 
+            string loginHash = SHA256Hash(LoginTb.Text);
+            string passwordHash = SHA256Hash(PwdBox.Password);
+
+            foreach (Users user in database.Users)
+            {
+                if(user.Login == loginHash && user.Password == passwordHash)
+                {
+                    if(RememberBtn.IsChecked.Value == true)
+                    {
+                        string path = @"C:\Users\LioTechConfig.cfg";
+                        try
+                        {
+                            using (FileStream stream = File.Create(path))
+                            {
+                                byte[] info = new UTF8Encoding(true).GetBytes($"{loginHash}{passwordHash}");
+                                stream.Write(info, 0, info.Length);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                        WindowLogist_Start();
+                    }
+                    else
+                    {
+                        WindowLogist_Start();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Неверный логин или пароль!");
+                    return;
+                }
             }
         }
 
-        public static String sha256_hash(String value)
+        public static string SHA256Hash(string value)
         {
             StringBuilder Sb = new StringBuilder();
 
@@ -74,6 +110,43 @@ namespace LioTech.Windows
             }
 
             return Sb.ToString();
+        }
+
+        private void WindowLogist_Start()
+        {
+            WindowLogist window = new WindowLogist();
+            window.Show();
+            this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            try
+            {
+                string path = @"C:\Users\LioTechConfig.cfg";
+
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string s = "";
+
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        foreach (Users user in database.Users)
+                        {
+                            if (user.Summary_Hash == SHA256Hash(s))
+                            {
+                                WindowLogist_Start();
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                this.Show();
+                return;
+            }
         }
     }
 }

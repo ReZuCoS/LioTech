@@ -9,11 +9,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LioTech.Connections;
 
 namespace LioTech.Windows
 {
     public partial class WindowLogist : Window
     {
+        readonly Model_LioTech database = new Model_LioTech();
+
+        public static WindowLogist mainWindow { get; set; }
+
         public WindowLogist()
         {
             InitializeComponent();
@@ -35,6 +40,17 @@ namespace LioTech.Windows
         private void MinBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void DeliveriesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow = this;
+            WindowDeliveries window = new WindowDeliveries
+            {
+                database = database
+            };
+            this.Hide();
+            window.Show();
         }
     }
 }

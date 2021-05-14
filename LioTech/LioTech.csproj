@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,6 +68,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Connections\Deliveries.cs" />
+    <Compile Include="Connections\Different.cs" />
+    <Compile Include="Connections\LiIonBatteries.cs" />
+    <Compile Include="Connections\Model_LioTech.cs" />
+    <Compile Include="Connections\NetworkedEnergyStorage.cs" />
+    <Compile Include="Connections\TractionBatteries_EBus.cs" />
+    <Compile Include="Connections\TractionBatteries_SpecialEq.cs" />
+    <Compile Include="Connections\UninterruptiblePowerSupplies.cs" />
+    <Compile Include="Connections\Users.cs" />
     <Compile Include="Windows\WindowDeliveries.xaml.cs">
       <DependentUpon>WindowDeliveries.xaml</DependentUpon>
     </Compile>
@@ -105,6 +123,7 @@
     <Resource Include="Libraries\Fonts\Montserrat-SemiBoldItalic.ttf" />
     <Resource Include="Libraries\Fonts\Montserrat-Thin.ttf" />
     <Resource Include="Libraries\Fonts\Montserrat-ThinItalic.ttf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

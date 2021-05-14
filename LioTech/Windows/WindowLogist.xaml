@@ -72,8 +72,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <!-- Button suppliers -->
-            <Button Name="SuppliersBtn" Grid.Column="0" Grid.Row="0" Style="{StaticResource Btn_default}">
+            <!-- Button deliveries -->
+            <Button Name="DeliveriesBtn" Grid.Column="0" Grid.Row="0" Style="{StaticResource Btn_default}"
+                    Click="DeliveriesBtn_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Background="#8cb349">

@@ -6,7 +6,7 @@ GO
 
 CREATE TABLE Deliveries
 (
-	ID INT IDENTITY(1,1) NOT NULL,
+	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	CompanyName nvarchar(100) NOT NULL,
 	Product nvarchar(100) NOT NULL,
 	DepartureDate date NOT NULL,
@@ -16,18 +16,20 @@ CREATE TABLE Deliveries
 
 CREATE TABLE Users
 (
-	ID INT IDENTITY(1,1) NOT NULL,
-	Login nvarchar(50) NOT NULL,
-	Password nvarchar(50) NOT NULL,
+	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Login nvarchar(64) NOT NULL,
+	Password nvarchar(64) NOT NULL,
 	FirstName nvarchar(50) NOT NULL,
 	SecondName nvarchar(50) NOT NULL,
 	MiddleName nvarchar(50),
-	Gender nvarchar(10) NOT NULL
+	Gender nvarchar(10) NOT NULL,
+	Summary_Hash nvarchar(65) NOT NULL
 );
+
 
 CREATE TABLE LiIonBatteries
 (
-	ID INT IDENTITY(1,1) NOT NULL,
+	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Name nvarchar(100) NOT NULL,
 	BodyMaterial nvarchar(50) NOT NULL,
 	Capacity nvarchar(50) NOT NULL,
@@ -38,7 +40,7 @@ CREATE TABLE LiIonBatteries
 
 CREATE TABLE TractionBatteries_EBus
 (
-	ID INT IDENTITY(1,1) NOT NULL,
+	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Name nvarchar(100) NOT NULL,
 	CoolingType nvarchar(25),
 	Capacity nvarchar(50) NOT NULL,
@@ -49,7 +51,7 @@ CREATE TABLE TractionBatteries_EBus
 
 CREATE TABLE TractionBatteries_SpecialEq
 (
-	ID INT IDENTITY(1,1) NOT NULL,
+	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Name nvarchar(100) NOT NULL,
 	ExplosionProtectionType nvarchar(50),
 	Capacity nvarchar(50) NOT NULL,
@@ -60,7 +62,7 @@ CREATE TABLE TractionBatteries_SpecialEq
 
 CREATE TABLE UninterruptiblePowerSupplies
 (
-	ID INT IDENTITY(1,1) NOT NULL,
+	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Name nvarchar(100) NOT NULL,
 	ExplosionProtectionType nvarchar(50),
 	MaxPower nvarchar(100),
@@ -72,7 +74,7 @@ CREATE TABLE UninterruptiblePowerSupplies
 
 CREATE TABLE NetworkedEnergyStorage
 (
-	ID INT IDENTITY(1,1) NOT NULL,
+	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Name nvarchar(100) NOT NULL,
 	ClimaticType nvarchar(50),
 	MaxPower nvarchar(100),
@@ -84,7 +86,7 @@ CREATE TABLE NetworkedEnergyStorage
 
 CREATE TABLE Different
 (
-	ID INT IDENTITY(1,1) NOT NULL,
+	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Name nvarchar(100) NOT NULL,
 	Description nvarchar(250)
 );

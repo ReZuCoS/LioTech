@@ -8,12 +8,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Linq;
 using System.Windows.Shapes;
+using System.Data.Entity.Core.Objects;
+using LioTech.Connections;
 
 namespace LioTech.Windows
 {
     public partial class WindowDeliveries : Window
     {
+        public Model_LioTech database { get; set; }
+
         public WindowDeliveries()
         {
             InitializeComponent();
@@ -29,6 +34,7 @@ namespace LioTech.Windows
 
         private void СloseBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            WindowLogist.mainWindow.Show();
             this.Close();
         }
 
@@ -39,7 +45,7 @@ namespace LioTech.Windows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //DeliveriesBindingSource.ItemsSource
+            DeliveriesBindingSource.ItemsSource = database.Deliveries.ToList();
         }
     }
 }
