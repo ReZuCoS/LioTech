@@ -10,7 +10,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Linq;
 using System.Windows.Shapes;
-using System.Data.Entity.Core.Objects;
 using LioTech.Connections;
 
 namespace LioTech.Windows
