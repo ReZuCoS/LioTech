@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LioTech.Windows"
         mc:Ignorable="d" Background="#FFF1F2F3" WindowStyle="None"
-        Title="WindowDeliveries" Height="450" Width="648"
-        AllowsTransparency="True" ResizeMode="NoResize"
+        Title="WindowDeliveries" MinHeight="450" MinWidth="648" MaxHeight="900" MaxWidth="1400"
+        AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Height="450" Width="648"
         WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
@@ -42,18 +42,22 @@
         <Grid Grid.Row="1" Background="Transparent">
 
             <!-- Top border -->
-            <Border BorderBrush="#8cb349" BorderThickness="0 1 0 0"/>
+            <Border BorderBrush="#8cb349" BorderThickness="0 1 0 1"/>
 
             <!-- DataGrid -->
-            <DataGrid Name="mainBindingSource" VerticalAlignment="Top" Margin="0 1 0 0"
-                      Height="375" IsReadOnly="True"/>
+            <DataGrid Name="mainBindingSource" VerticalAlignment="Top" Margin="0 1 0 0" IsReadOnly="True"/>
         </Grid>
 
         <Grid Grid.Row="2" Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
             <!-- Add button -->
-            <Button Name="AddBtn" Grid.Row="2" HorizontalAlignment="Left" Click="AddBtn_Click"
-                    Margin="25 0 0 0" Style="{StaticResource TransparentBtn_default}" Visibility="Hidden">
+            <Button Name="AddBtn" Grid.Row="2" HorizontalAlignment="Center" Click="AddBtn_Click" Grid.Column="0" Style="{StaticResource TransparentBtn_default}" Visibility="Hidden">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Height="28" Width="124" CornerRadius="1"
@@ -88,8 +92,7 @@
             </Button>
 
             <!-- Change button -->
-            <Button Name="ChangeBtn" Grid.Row="2" HorizontalAlignment="Left" Visibility="Hidden"
-                    Margin="185 0 0 0" Style="{StaticResource TransparentBtn_default}" Click="ChangeBtn_Click">
+            <Button Name="ChangeBtn" Grid.Row="2" HorizontalAlignment="Center" Visibility="Hidden" Grid.Column="1" Style="{StaticResource TransparentBtn_default}" Click="ChangeBtn_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Height="28" Width="124" CornerRadius="1"
@@ -124,8 +127,8 @@
             </Button>
 
             <!-- Delete button -->
-            <Button Name="DeleteBtn" Grid.Row="2" HorizontalAlignment="Right" Visibility="Hidden"
-                    Margin="0 0 185 0" Style="{StaticResource TransparentBtn_default}" Click="DeleteBtn_Click">
+            <Button Name="DeleteBtn" Grid.Row="2" HorizontalAlignment="Center" Visibility="Hidden" Grid.Column="2"
+                    Style="{StaticResource TransparentBtn_default}" Click="DeleteBtn_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Height="28" Width="124" CornerRadius="1"
@@ -159,8 +162,8 @@
                 </Button.Template>
             </Button>
 
-            <Button Name="BackBtn" Grid.Row="2" HorizontalAlignment="Right"
-                    Margin="0 0 25 0" Style="{StaticResource TransparentBtn_default}" Click="BackBtn_Click">
+            <Button Name="BackBtn" Grid.Row="2" HorizontalAlignment="Center" Grid.Column="3"
+                    Style="{StaticResource TransparentBtn_default}" Click="BackBtn_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Height="28" Width="124" CornerRadius="1"
