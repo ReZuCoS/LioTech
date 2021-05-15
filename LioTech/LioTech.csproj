@@ -77,8 +77,11 @@
     <Compile Include="Connections\TractionBatteries_SpecialEq.cs" />
     <Compile Include="Connections\UninterruptiblePowerSupplies.cs" />
     <Compile Include="Connections\Users.cs" />
-    <Compile Include="Windows\WindowDeliveries.xaml.cs">
-      <DependentUpon>WindowDeliveries.xaml</DependentUpon>
+    <Compile Include="Windows\WindowEditor.xaml.cs">
+      <DependentUpon>WindowEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowTable.xaml.cs">
+      <DependentUpon>WindowTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WindowLogin.xaml.cs">
       <DependentUpon>WindowLogin.xaml</DependentUpon>
@@ -143,7 +146,6 @@
     <Resource Include="Libraries\Images\Line_mouse_on.png" />
     <Resource Include="Libraries\Images\Батареи для спецтехники.png" />
     <Resource Include="Libraries\Images\Батареи для транспорта.png" />
-    <Resource Include="Libraries\Images\Дилер.png" />
     <Resource Include="Libraries\Images\Источники бесперебойного питания.png" />
     <Resource Include="Libraries\Images\Литий-ионный аккумулятор.png" />
     <Resource Include="Libraries\Images\Поставки.png" />
@@ -151,7 +153,11 @@
     <Resource Include="Libraries\Images\Стрелка.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Windows\WindowDeliveries.xaml">
+    <Page Include="Windows\WindowEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindowTable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

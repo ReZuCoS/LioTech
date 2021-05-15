@@ -64,6 +64,29 @@
             <Setter Property="Height" Value="1"/>
         </Style>
 
+        <!-- Default datePicker style -->
+        <Style x:Key="Dp_default" TargetType="DatePicker">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="270"/>
+            <Setter Property="Foreground" Value="#FF919193"/>
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#FFF1F2F3"/>
+        </Style>
+        
+        <!-- Default datePicker style -->
+        <Style x:Key="Cb_default" TargetType="ComboBox">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="270"/>
+            <Setter Property="Foreground" Value="#000000"/>
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
         <!-- Transparent button style -->
         <Style x:Key="TransparentBtn_default" TargetType="Button">
             <Setter Property="FontSize" Value="18"/>

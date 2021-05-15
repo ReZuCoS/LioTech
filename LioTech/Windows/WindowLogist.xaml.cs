@@ -15,9 +15,9 @@ namespace LioTech.Windows
 {
     public partial class WindowLogist : Window
     {
-        readonly Model_LioTech database = new Model_LioTech();
+        Model_LioTech database = new Model_LioTech();
 
-        public static WindowLogist mainWindow { get; set; }
+        public static WindowLogist MainWindow { get; set; }
 
         public WindowLogist()
         {
@@ -44,13 +44,91 @@ namespace LioTech.Windows
 
         private void DeliveriesBtn_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow = this;
-            WindowDeliveries window = new WindowDeliveries
+            MainWindow = this;
+            WindowTable window = new WindowTable
             {
-                database = database
+                database = database,
+                TableName = "Deliveries"
             };
             this.Hide();
             window.Show();
+        }
+
+        private void LiIonBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow = this;
+            WindowTable window = new WindowTable
+            {
+                database = database,
+                TableName = "LiIonBatteries"
+            };
+            this.Hide();
+            window.Show();
+        }
+
+        private void EBusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow = this;
+            WindowTable window = new WindowTable
+            {
+                database = database,
+                TableName = "TractionBatteries_EBus"
+            };
+            this.Hide();
+            window.Show();
+        }
+
+        private void SpecialEqBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow = this;
+            WindowTable window = new WindowTable
+            {
+                database = database,
+                TableName = "TractionBatteries_SpecialEq"
+            };
+            this.Hide();
+            window.Show();
+        }
+
+        private void UpsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow = this;
+            WindowTable window = new WindowTable
+            {
+                database = database,
+                TableName = "UninterruptiblePowerSupplies"
+            };
+            this.Hide();
+            window.Show();
+        }
+
+        private void NesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow = this;
+            WindowTable window = new WindowTable
+            {
+                database = database,
+                TableName = "NetworkedEnergyStorage"
+            };
+            this.Hide();
+            window.Show();
+        }
+
+        private void DifferentBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow = this;
+            WindowTable window = new WindowTable
+            {
+                database = database,
+                TableName = "Different"
+            };
+            this.Hide();
+            window.Show();
+        }
+
+        private void Logo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://liotech.ru");
         }
     }
 }

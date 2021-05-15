@@ -9,10 +9,11 @@
         MinHeight="430" MinWidth="580" MaxHeight="450" MaxWidth="650"
         AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
         WindowStartupLocation="CenterScreen">
-    <Grid d:IsLocked="True">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="24"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="75"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -37,14 +38,14 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Background="Transparent">
+        <Grid Grid.Row="1" Background="Transparent" MouseDown="DragMovement">
 
             <!-- Top border -->
             <Border BorderBrush="#8cb349" BorderThickness="0 1 0 0"/>
 
             <!-- Logo container -->
-            <Grid Grid.Row="0" MouseDown="DragMovement" VerticalAlignment="Top"
-                      Background="#8cb349" Height="75" Width="175">
+            <Grid Grid.Row="0"  VerticalAlignment="Top"
+                      Background="#8cb349" Height="75" Width="175" MouseDown="Logo_MouseDown">
                 <TextBlock Text="Лиотех" VerticalAlignment="Center"
                        HorizontalAlignment="Center" Margin="0 10 10 0"
                        FontFamily="Montserrat" FontSize="35"
@@ -59,22 +60,9 @@
         </Grid>
 
         <Grid Grid.Row="2" Background="Transparent">
-
-            <!-- Definitions -->
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
             <!-- Button deliveries -->
-            <Button Name="DeliveriesBtn" Grid.Column="0" Grid.Row="0" Style="{StaticResource Btn_default}"
-                    Click="DeliveriesBtn_Click">
+            <Button Name="DeliveriesBtn" Grid.Row="0" Margin="0 0 0 10" Style="{StaticResource Btn_default}"
+                    Click="DeliveriesBtn_Click" VerticalAlignment="Bottom">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Background="#8cb349">
@@ -94,31 +82,23 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+        </Grid>
 
-            <!-- Button dealer -->
-            <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource Btn_default}">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Grid Background="#8cb349">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="40"/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="30"/>
-                            </Grid.ColumnDefinitions>
+        <Grid Grid.Row="3" Background="Transparent">
 
-                            <Image Grid.Column="0" Source="/Libraries/Images/Дилер.png" Width="26" Height="25"
-                                   Margin="0 0 0 0" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
-                            <TextBlock Grid.Column="1" Text="Дилеры" TextWrapping="Wrap" FontSize="25" FontWeight="Normal"
-                                       FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
-                            <Image Grid.Column="2" Source="/Libraries/Images/Стрелка.png" Width="20" Height="20"
-                                   Margin="0 0 0 0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+            <!-- Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
             <!-- Button li-ion battery -->
-            <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource Btn_default}">
+            <Button Name="LiIonBtn" Grid.Column="0" Grid.Row="0" Style="{StaticResource Btn_default}" Click="LiIonBtn_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Background="#8cb349">
@@ -140,7 +120,7 @@
             </Button>
 
             <!-- Button batteries for electric buses -->
-            <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource Btn_default}">
+            <Button Name="EBusBtn" Grid.Column="1" Grid.Row="0" Style="{StaticResource Btn_default}" Click="EBusBtn_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Background="#8cb349">
@@ -162,7 +142,7 @@
             </Button>
 
             <!-- Button batteries for construction equipment -->
-            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource Btn_default}">
+            <Button Name="SpecialEqBtn" Grid.Column="0" Grid.Row="1" Style="{StaticResource Btn_default}" Click="SpecialEqBtn_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Background="#8cb349">
@@ -184,7 +164,7 @@
             </Button>
 
             <!-- Button uninterruptible Power Supplies -->
-            <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource Btn_default}">
+            <Button Name="UpsBtn" Grid.Column="1" Grid.Row="1" Style="{StaticResource Btn_default}" Click="UpsBtn_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Background="#8cb349">
@@ -206,7 +186,7 @@
             </Button>
 
             <!-- Button networked energy storage -->
-            <Button Grid.Column="0" Grid.Row="3" Style="{StaticResource Btn_default}">
+            <Button Name="NesBtn" Grid.Column="0" Grid.Row="2" Style="{StaticResource Btn_default}" Click="NesBtn_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Background="#8cb349">
@@ -228,7 +208,7 @@
             </Button>
 
             <!-- Button different -->
-            <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource Btn_default}">
+            <Button Name="DifferentBtn" Grid.Column="1" Grid.Row="2" Style="{StaticResource Btn_default}" Click="DifferentBtn_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Background="#8cb349">
